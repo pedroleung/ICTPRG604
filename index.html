@@ -204,13 +204,13 @@
       window.localStorage.setItem('courseUnits', JSON.stringify(courseUnits));
     }
 
-    function downloadTextFile(text, name) {
+    function downloadJsonFile() {
       const filename = `course_units_${new Date().getTime()}.json`;
       const content = window.localStorage.getItem("courseUnits");
       const a = document.createElement('a');
-      const type = name.split(".").pop();
+      const type = filename.split(".").pop();
       a.href = URL.createObjectURL(new Blob([content], { type: `text/${type === "txt" ? "plain" : type}` }));
-      a.download = name;
+      a.download = filename;
       a.click();
     }
   </script>
